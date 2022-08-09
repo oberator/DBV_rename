@@ -5,7 +5,6 @@ from PyPDF2 import PdfFileReader
 from pathlib import PurePath
 from pathlib import PureWindowsPath
 
-
 if len(sys.argv) == 1: 
     print("No files imported - Please drag and drop your files")
 else: 
@@ -15,10 +14,8 @@ else:
         reader = PdfFileReader(filename)
         page = reader.pages[0]
         page_content = page.extractText()
-        #print(page_content)
         dates = re.findall(date_pattern, page_content)
         rawdate= dates[0]
-        #print(dates[0])
         converteddate = rawdate.split(".")
         year = converteddate[2]
         month = converteddate[1]
